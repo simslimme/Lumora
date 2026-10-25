@@ -40,10 +40,10 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"Is ElevenLabs worth it in 2026?","acceptedAnswer":{"@type":"Answer","text":"For creators who publish audio regularly — YouTube, podcasts, audiobooks, courses — ElevenLabs replaces several separate tools (TTS, cloning, dubbing, sound effects, music, voice agents) with one credit pool, and its voice realism is widely considered best-in-class. Light or occasional users may be fine on the free tier or a cheaper single-purpose tool."}},
-    {"@type":"Question","name":"Is there a free ElevenLabs plan?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Free plan includes 10,000 monthly credits (roughly 10 minutes of Multilingual text-to-speech) for testing. It requires attribution and does not include a commercial license — commercial use starts with the $6 Starter plan."}},
+    {"@type":"Question","name":"Is there a free ElevenLabs plan?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Free plan includes 10,000 monthly credits (roughly 10 minutes of text-to-speech) for testing. It requires attribution and does not include a commercial license — commercial use starts with the $6 Starter plan."}},
     {"@type":"Question","name":"Is AI voice cloning legal?","acceptedAnswer":{"@type":"Answer","text":"Cloning your own voice, or a voice you have explicit permission to clone, is legal in most jurisdictions. Cloning someone else's voice without consent can violate ElevenLabs' terms and laws around impersonation, publicity rights and fraud. ElevenLabs requires consent verification for cloning."}},
     {"@type":"Question","name":"How much does ElevenLabs cost?","acceptedAnswer":{"@type":"Answer","text":"As of July 2026: Free $0, Starter $6/mo, Creator $22/mo (first month discounted), Pro $99/mo, Scale $299/mo, Business $990/mo, with custom Enterprise pricing. Annual billing works out to roughly two months free. Always confirm on the live pricing page."}},
-    {"@type":"Question","name":"What languages does ElevenLabs support?","acceptedAnswer":{"@type":"Answer","text":"ElevenLabs supports dozens of languages (29+ on the Multilingual v2 model, more on newer models) across text-to-speech and dubbing, with voices that preserve tone and character across languages."}}
+    {"@type":"Question","name":"What languages does ElevenLabs support?","acceptedAnswer":{"@type":"Answer","text":"ElevenLabs supports 90+ languages on its flagship Eleven v4 model (released September 28, 2026), including Swahili, Amharic, Somali, Luganda, Kamba, Shona and Zulu, across text-to-speech and dubbing, with voices that preserve tone and character across languages."}}
   ]
 }
 </script>
@@ -121,6 +121,12 @@ nav.scrolled{border-color:var(--line)}
 /* trust strip */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;background:var(--card)}
 .strip .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+/* v4 strip */
+.v4-strip{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;margin-top:24px;padding:14px 18px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--rec);border-radius:12px}
+.v4-strip .eyebrow{margin:0}
+.v4-strip p{flex:1;min-width:220px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.v4-strip p a{color:var(--rec)}
+.v4-strip .btn{padding:9px 16px;font-size:14px}
 /* ecosystem grid */
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s ease,box-shadow .15s ease}
@@ -280,9 +286,14 @@ footer a:hover{color:var(--ink)}
     <p class="hero-note">Free plan available · No credit card required to start</p>
     <div class="badges">
       <span class="badge"><b>Millions</b> of creators &amp; developers</span>
-      <span class="badge"><b>Dozens</b> of languages supported</span>
+      <span class="badge"><b>90+</b> languages supported</span>
       <span class="badge"><b>Broadcast-grade</b> voice realism</span>
       <span class="badge"><b>Enterprise-ready</b> API &amp; security</span>
+    </div>
+    <div class="v4-strip">
+      <span class="eyebrow">New · Eleven v4</span>
+      <p>We voiced a whole short film with Eleven v4 on the $6 plan — <a href="/blog/elevenlabs-v4-review.html">read the 8/10 review</a></p>
+      <a class="btn btn-primary" href="https://try.elevenlabs.io/sim" target="_blank" rel="sponsored noopener" data-placement="hero">Try v4 free →</a>
     </div>
   </div>
   <div class="hero-wave" aria-hidden="true"></div>
@@ -462,7 +473,7 @@ footer a:hover{color:var(--ink)}
           <tr><td>Conversational AI agents</td><td class="win-col yes">Yes</td><td class="no">—</td><td class="no">—</td><td class="part">Voice API</td><td class="no">—</td><td class="no">—</td></tr>
           <tr><td>Sound effects generation</td><td class="win-col yes">Yes</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="part">Library</td></tr>
           <tr><td>Music generation</td><td class="win-col yes">Yes</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
-          <tr><td>Languages</td><td class="win-col yes">Dozens</td><td class="part">Many</td><td class="part">20+</td><td class="yes">Many</td><td class="no">EN-focused</td><td class="part">Many</td></tr>
+          <tr><td>Languages</td><td class="win-col yes">90+</td><td class="part">Many</td><td class="part">20+</td><td class="yes">Many</td><td class="no">EN-focused</td><td class="part">Many</td></tr>
           <tr><td>API access</td><td class="win-col yes">Full API</td><td class="part">Yes</td><td class="part">Yes</td><td class="yes">Yes</td><td class="part">Yes</td><td class="no">Limited</td></tr>
           <tr><td>Enterprise features</td><td class="win-col yes">Yes</td><td class="part">Yes</td><td class="yes">Yes</td><td class="part">Yes</td><td class="yes">Yes</td><td class="part">Yes</td></tr>
           <tr><td>Ease of use</td><td class="win-col yes">Excellent</td><td class="yes">Excellent</td><td class="yes">Excellent</td><td class="part">Good</td><td class="yes">Excellent</td><td class="part">Editor-centric</td></tr>
@@ -557,12 +568,13 @@ footer a:hover{color:var(--ink)}
     <h2>Questions, answered honestly</h2>
     <div class="faq" style="text-align:left">
       <details><summary>Is ElevenLabs worth it in 2026?</summary><p>If you publish audio regularly — YouTube, podcasts, courses, audiobooks — yes: it replaces several subscriptions (TTS, cloning, dubbing, SFX, music) with one credit pool, and its realism is widely regarded as best-in-class. If you only need a few minutes of basic speech a month, the free tier or a cheaper single-purpose tool may be enough.</p></details>
-      <details><summary>Is there a free plan?</summary><p>Yes — 10,000 credits per month (about 10 minutes of Multilingual speech) with access to TTS, sound effects and voice design. It requires attribution and doesn't include a commercial license.</p></details>
+      <details><summary>Is there a free plan?</summary><p>Yes — 10,000 credits per month (about 10 minutes of speech) with access to TTS, sound effects and voice design. It requires attribution and doesn't include a commercial license.</p></details>
       <details><summary>How does pricing and the credit system work?</summary><p>Every plan includes a monthly pool of credits shared across all products. Roughly, one text character costs one credit on the flagship model, with discounted rates on faster models. If you run out, you can buy overage minutes, with rates that drop on higher plans. Annual billing works out to about two months free.</p></details>
       <details><summary>Is voice cloning legal?</summary><p>Cloning your own voice, or a voice you have explicit written permission to clone, is legal in most places. Cloning someone without consent can violate ElevenLabs' terms and laws on impersonation, publicity rights and fraud. ElevenLabs requires consent verification, and you should always disclose AI narration where your platform or jurisdiction requires it.</p></details>
       <details><summary>What's the difference between Instant and Professional Voice Cloning?</summary><p>Instant Voice Cloning (Starter plan and up) builds a usable clone from a few minutes of audio. Professional Voice Cloning (Creator plan and up) trains on longer samples for near-indistinguishable quality — it's the feature most serious creators upgrade for.</p></details>
       <details><summary>How accurate is the dubbing?</summary><p>Very good for clear, single-speaker content, and it preserves the original voice's character across languages. Fast overlapping speech, heavy slang and niche jargon still benefit from a human review pass — the dubbing studio lets you edit the translation before export.</p></details>
-      <details><summary>What languages are supported?</summary><p>Dozens — the Multilingual v2 model supports 29+ languages, with newer models extending coverage further across TTS and dubbing. Check the live language list for your specific target market.</p></details>
+      <details><summary>What languages are supported?</summary><p>90+ on Eleven v4, the flagship model released September 28, 2026, including Swahili, Amharic, Somali, Luganda, Kamba, Shona and Zulu, across TTS and dubbing. Check the live language list for your specific target market.</p></details>
+      <details><summary>Does Lumora Voices cover Eleven v4?</summary><p>Yes — we voiced a whole short film with Eleven v4 on the $6 Starter plan and scored it 8/10. Our <a href="/blog/elevenlabs-v4-review.html">full Eleven v4 review</a> covers what it gets right, where it falls short, pricing, and v4 vs v4 Turbo.</p></details>
       <details><summary>Can I create audiobooks with it?</summary><p>Yes. Long-form projects are a core use case: consistent narration across chapters, pronunciation controls, and regeneration of individual sentences instead of re-recording sessions. Note that some retail platforms have their own rules about AI-narrated titles, so check distributor policies.</p></details>
       <details><summary>What are AI agents?</summary><p>Conversational voice assistants that combine speech recognition, an LLM and ElevenLabs voices. Businesses use them for phone support, bookings and lead qualification; developers embed them in products. Agent plans are billed by call minutes, from a free prototyping tier to thousands of minutes for teams.</p></details>
       <details><summary>Can I generate music, and can I use it commercially?</summary><p>Yes, Eleven Music generates original tracks from text prompts. Commercial usage rights depend on your plan and the current license terms, so review those before using tracks in monetized or client work.</p></details>
