@@ -131,12 +131,16 @@
     try {
       var form = e.target;
       if (!form || !(form instanceof HTMLFormElement)) return;
-      if (!form.matches('[data-lead-form], #newsletter-form, .newsletter-form')) return;
+      // Kit (formkit) renders its <form> inside the [data-lead-form] wrapper, so match ancestors too.
+      var leadEl = form.closest('[data-lead-form], #newsletter-form, .newsletter-form');
+      if (!leadEl) return;
+      var placement = getPlacement(leadEl);
 
       trackEvent('email_signup', {
-        form_location: getPlacement(form),
+        placement: placement,
+        form_location: placement,
         page_path: window.location.pathname,
-        lead_magnet: form.getAttribute('data-lead-magnet') || null
+        lead_magnet: leadEl.getAttribute('data-lead-magnet') || null
       });
     } catch (err) {
       if (window.LUMORA_DEBUG) console.error('[Lumora Analytics] submit handler error', err);
