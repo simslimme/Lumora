@@ -115,6 +115,33 @@ nav.scrolled{border-color:var(--line)}
 .v4-strip p a{color:var(--rec)}
 .v4-strip .btn{padding:9px 16px;font-size:14px}
 .v4-strip .aff-note{flex:1 1 100%;margin:0;font-family:var(--body);letter-spacing:0;text-transform:none}
+.v4-strip[hidden]{display:none}
+/* Black Friday strip (temporary, swapped in by script until 2026-12-02T04:59:00Z) */
+.bf-strip{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px 24px;margin-top:24px;padding:18px 20px;background:var(--booth);color:var(--paper);border-radius:14px;position:relative;overflow:hidden}
+.bf-strip[hidden]{display:none}
+.bf-strip::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(229,72,77,.16) 50%,transparent 70%);transform:translateX(-100%);animation:bf-sweep 5s ease-in-out infinite;pointer-events:none}
+.bf-strip>*{position:relative;z-index:1}
+.bf-strip .eyebrow{margin:0 0 8px}
+.bf-strip .eyebrow::before{width:9px;height:9px;animation:bf-blink 1.2s steps(1,end) infinite}
+.bf-count{color:#A3A5AD;font-variant-numeric:tabular-nums;white-space:nowrap}
+.bf-head{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.2;color:var(--paper)}
+.bf-head span{color:var(--rec)}
+.bf-actions{text-align:right}
+.bf-strip .btn{background:var(--rec);color:#fff;border-radius:10px;padding:12px 18px;font-weight:600;animation:bf-glow 2.6s ease-in-out infinite}
+.bf-strip .bf-aff{font-size:12px;color:#A3A5AD;margin:8px 0 0}
+.bf-plan{display:inline-block;margin-top:6px;font-size:13px;color:var(--paper)}
+@keyframes bf-sweep{0%,50%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes bf-blink{0%{opacity:1}50%{opacity:0}}
+@keyframes bf-glow{0%,100%{box-shadow:0 0 0 0 rgba(229,72,77,0)}50%{box-shadow:0 0 0 7px rgba(229,72,77,.22)}}
+@media (prefers-reduced-motion:reduce){
+  .bf-strip::after{animation:none;display:none}
+  .bf-strip .eyebrow::before,.bf-strip .btn{animation:none}
+}
+@media (max-width:720px){
+  .bf-strip{grid-template-columns:1fr}
+  .bf-actions{text-align:left}
+  .bf-strip .btn{display:block;width:100%;text-align:center}
+}
 /* affiliate disclosures + sale note */
 .aff-note{font-size:13px;color:var(--muted);margin-top:10px}
 .booth .aff-note,.final .aff-note{color:#A6A8B1}
@@ -293,12 +320,36 @@ footer a:hover{color:var(--ink)}
       <span class="badge"><b>Broadcast-grade</b> voice realism</span>
       <span class="badge"><b>Enterprise-ready</b> API &amp; security</span>
     </div>
-    <div class="v4-strip">
+    <div class="bf-strip" id="bf-strip" hidden>
+      <div>
+        <span class="eyebrow"><span>Black Friday · <span class="bf-count" id="bf-count">ends in 8d 13h 24m</span></span></span>
+        <p class="bf-head">ElevenLabs plans <span>up to 55% off</span>. Creator annual is $99 (normally $220).</p>
+      </div>
+      <div class="bf-actions">
+        <a class="btn" href="https://try.elevenlabs.io/sim-plan" target="_blank" rel="sponsored noopener" data-placement="hero">See the deal →</a>
+        <p class="bf-aff">Affiliate link: we earn a commission if you sign up.</p>
+        <a class="bf-plan" href="/blog/instant-vs-professional-voice-cloning.html">Which plan do I need?</a>
+      </div>
+    </div>
+    <div class="v4-strip" id="v4-strip">
       <span class="eyebrow">New · Eleven v4</span>
       <p>We voiced a whole short film with Eleven v4 on the $6 plan — <a href="/blog/elevenlabs-v4-review.html">read the 8/10 review</a></p>
       <a class="btn btn-primary" href="https://try.elevenlabs.io/sim" target="_blank" rel="sponsored noopener" data-placement="hero">Try v4 free →</a>
       <p class="aff-note">Affiliate link: we earn a commission if you sign up. It doesn't change what we say about the tool.</p>
     </div>
+    <script>
+    (function(){
+      var end=Date.parse("2026-12-02T04:59:00Z"),bf=document.getElementById('bf-strip'),v4=document.getElementById('v4-strip'),out=document.getElementById('bf-count');
+      function pad(n){return n<10?'0'+n:''+n;}
+      function tick(){
+        var left=end-Date.now();
+        if(left<=0){bf.hidden=true;v4.hidden=false;clearInterval(timer);return;}
+        var m=Math.floor(left/60000);
+        out.textContent='ends in '+Math.floor(m/1440)+'d '+pad(Math.floor(m/60)%24)+'h '+pad(m%60)+'m';
+      }
+      if(Date.now()<end){bf.hidden=false;v4.hidden=true;tick();var timer=setInterval(tick,1000);}
+    })();
+    </script>
   </div>
   <div class="hero-wave" aria-hidden="true"></div>
 </header>
